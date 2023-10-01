@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lista de abrigos
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container text-center">
+    <a href="{% url 'dog_register' %}">Cadastre um cachorro disponível para adoção</a><br>
+</div><br>
+
+<h2 class="text-uppercase container-fluid">Lista de abrigos</h2>
+<div class="container-fluid">Aqui está a lista de abrigos cadastrados</div><br>
+    <div class="container-fluid">
+        <ul>
+            {% for shelter in shelters %}
+                <li>
+                    <a href="{% url 'shelter_detail' shelter.id %}">
+                        {{shelter.name}}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>  
+    </div>
+</div>
+
+{% endblock %}
